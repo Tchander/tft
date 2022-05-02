@@ -1,5 +1,5 @@
 <template>
-  <h1>Hella Jinx</h1>
+  <div />
 </template>
 
 <script>

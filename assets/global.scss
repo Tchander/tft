@@ -82,10 +82,10 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-
   vertical-align: baseline;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 html,
@@ -95,10 +95,14 @@ body {
   margin: 0;
   padding: 0;
   color: #fff;
-  background: #000;
+  background: #283655;
 }
 
 input {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+ul {
+  list-style-type: none;
 }
