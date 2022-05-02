@@ -11,16 +11,31 @@
     </div>
     <div class="champion-card__info">
       <div class="champion-card__classes">
-        <div v-for="championClass in champion.classes" :key="championClass + champion.id" class="champion-card__class">
-          <img :src="$options.CLASS_EMBLEMS[championClass]" :alt="championClass" class="champion-card__emblems">
+        <div
+          v-for="championClass in champion.classes"
+          :key="championClass + champion.id"
+          class="champion-card__class"
+        >
+          <img
+            :src="$options.CLASS_EMBLEMS[championClass]"
+            :alt="championClass"
+            class="champion-card__emblems"
+          >
           <p class="champion-card__text">
             {{ championClass }}
           </p>
         </div>
       </div>
-      <div class="champion-card__rank">
-        <span class="champion-card__number">{{ champion.rank }}</span>
-        <span class="champion-card__background" />
+      <div
+        class="champion-card__rank"
+        :class="`champion-card__rank_${champion.classes.length}`"
+      >
+        <span
+          class="champion-card__number"
+          :class="`champion-card__number_${champion.rank}`"
+        >
+          {{ champion.rank }}
+        </span>
       </div>
     </div>
   </li>
@@ -46,6 +61,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 298px;
   padding: 20px;
   background: #4d648d;
   border-radius: 20px;
@@ -56,16 +72,25 @@ export default {
     border-radius: 20px;
     margin-bottom: 15px;
 
+    &_1 {
+      border: 2px solid #2f373f;
+    }
+
     &_2 {
-      border: 2px solid #1a7750;
+      border: 2px solid #155e40;
     }
 
     &_4 {
       border: 2px solid #a51699;
     }
+
+    &_5 {
+      border: 2px solid #daaa29;
+    }
   }
 
   &__name {
+    flex-grow: 1;
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 30px;
@@ -75,6 +100,7 @@ export default {
     align-self: flex-start;
     display: flex;
     width: 100%;
+    position: relative;
   }
 
   &__classes {
@@ -102,28 +128,58 @@ export default {
     display: flex;
     justify-content: center;
     width: 25%;
+    position: absolute;
+    left: 145px;
+
+    &_1 {
+      top: -15px;
+    }
+
+    &_2 {
+      top: 0;
+    }
+
+    &_3 {
+      top: 30px;
+    }
   }
 
   &__number {
     position: relative;
-    z-index: 2;
     font-size: 36px;
-  }
-
-  &__background {
-    position: relative;
-    z-index: 1;
 
     &:before {
       content: '';
       position: absolute;
-      top: -5px;
-      left: -36px;
+      top: -4px;
+      left: -18px;
       width: 46px;
       height: 46px;
       border-radius: 50%;
-      border: 4px solid #283655;
-      background: #4d648d;
+    }
+
+    &_1 {
+      &:before {
+        border: 4px solid #2f373f;
+      }
+    }
+
+    &_2 {
+      &:before {
+        border: 4px solid #155e40;
+      }
+    }
+
+    &_4 {
+      &:before {
+        border: 4px solid #a51699;
+      }
+    }
+
+    &_5 {
+      &:before {
+        border: 4px solid #daaa29;
+      }
     }
   }
 }
