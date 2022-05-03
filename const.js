@@ -23,7 +23,10 @@ export const CLASSES = {
   sniper: 'Снайпер',
   scholar: 'Учёный',
   mutant: 'Мутант',
-  assassin: 'Убийца'
+  assassin: 'Убийца',
+  enchanter: 'Чародей',
+  mastermind: 'Главарь',
+  glutton: 'Гурман'
 }
 
 export const CLASS_EMBLEMS = {
@@ -51,5 +54,8 @@ export const CLASS_EMBLEMS = {
   Снайпер: require('@/static/images/classes/sniper.png'),
   Учёный: require('@/static/images/classes/scholar.png'),
   Мутант: require('@/static/images/classes/mutant.png'),
-  Убийца: require('@/static/images/classes/assassin.png')
+  Убийца: require('@/static/images/classes/assassin.png'),
+  Чародей: require('@/static/images/classes/enchanter.png'),
+  Главарь: require('@/static/images/classes/mastermind.png'),
+  Гурман: require('@/static/images/classes/glutton.png')
 }
