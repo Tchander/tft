@@ -80,6 +80,10 @@ export default {
       border: 2px solid #155e40;
     }
 
+    &_3 {
+      border: 2px solid #0d529b;
+    }
+
     &_4 {
       border: 2px solid #a51699;
     }
@@ -152,7 +156,7 @@ export default {
       content: '';
       position: absolute;
       top: -4px;
-      left: -18px;
+      left: -19px;
       width: 46px;
       height: 46px;
       border-radius: 50%;
@@ -161,6 +165,7 @@ export default {
     &_1 {
       &:before {
         border: 4px solid #2f373f;
+        left: -18px;
       }
     }
 
@@ -170,9 +175,16 @@ export default {
       }
     }
 
+    &_3 {
+      &:before {
+        border: 4px solid #0d529b;
+      }
+    }
+
     &_4 {
       &:before {
         border: 4px solid #a51699;
+        left: -18px;
       }
     }
 
