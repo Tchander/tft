@@ -30,9 +30,10 @@ export default {
     }),
 
     filteredList () {
-      return this.champions.filter((champion) => {
+      const result = this.champions.filter((champion) => {
         return champion.name.toLowerCase().includes(this.searchChampionByName.toLowerCase())
       })
+      return result.length !== 0 ? result : this.champions
     }
   }
 }
