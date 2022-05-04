@@ -31,6 +31,7 @@ export default {
   left: 0;
   width: 100%;
   background: #4d648d;
+  box-shadow: 0 0 10px #4d648d;
 }
 .navigation-list {
   display: flex;

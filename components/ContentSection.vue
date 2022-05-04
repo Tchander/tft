@@ -19,7 +19,7 @@ export default {
   &__content {
     position: relative;
     height: 100%;
-    max-width: 1320px;
+    max-width: 1048px;
     margin: 0 auto;
   }
 }
