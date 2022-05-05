@@ -59,3 +59,8 @@ export const CLASS_EMBLEMS = {
   Главарь: require('@/static/images/classes/mastermind.png'),
   Гурман: require('@/static/images/classes/glutton.png')
 }
+
+export const CHAMPIONS_FILTER_BY_CLASS = {
+  title: 'Синергии',
+  items: Object.values(CLASSES)
+}
