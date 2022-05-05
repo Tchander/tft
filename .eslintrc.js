@@ -16,6 +16,10 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    'vue/multi-word-component-names': 'off'
+    'vue/multi-word-component-names': 'off',
+    'no-console': 'off',
+    'no-plusplus': 'off',
+    'no-underscore-dangle': 'off',
+    'consistent-return': 'off'
   }
 }

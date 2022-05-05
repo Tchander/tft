@@ -9,7 +9,11 @@
       </content-section>
     </main>
     <aside class="left-filter-wrapper">
-      <champions-filter v-model="championsByClass" v-bind="$options.CHAMPIONS_FILTER_BY_CLASS" />
+      <champions-filter
+        v-model="championsByClass"
+        v-bind="$options.CHAMPIONS_FILTER_BY_CLASS"
+        @changeCheckbox="changeCheckbox"
+      />
     </aside>
   </div>
 </template>
@@ -25,22 +29,45 @@ export default {
   CHAMPIONS_FILTER_BY_CLASS,
   name: 'Champions',
   components: { ChampionsFilter, SearchFilter, ChampionsCard },
+
   data () {
     return {
       searchChampionByName: '',
       championsByClass: []
     }
   },
+
   computed: {
     ...mapState({
       champions: state => state.champions
     }),
 
     filteredList () {
-      const result = this.champions.filter((champion) => {
+      const filteredList = this.champions.filter((champion) => {
         return champion.name.toLowerCase().includes(this.searchChampionByName.toLowerCase())
       })
-      return result.length !== 0 ? result : this.champions
+      if (this.championsByClass.length) {
+        if (filteredList.length !== 0) {
+          return this.filterByClass(filteredList)
+        }
+        return this.champions
+      }
+      return filteredList.length !== 0 ? filteredList : this.champions
+    }
+  },
+
+  methods: {
+    changeCheckbox (checkboxList) {
+      this.championsByClass = checkboxList
+    },
+
+    filterByClass (championsList) {
+      return championsList.filter((champion) => {
+        if (this.championsByClass.length > champion.classes.length) {
+          return false
+        }
+        return this.championsByClass.every(el => champion.classes.includes(el))
+      })
     }
   }
 }

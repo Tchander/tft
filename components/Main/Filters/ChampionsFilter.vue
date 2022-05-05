@@ -5,7 +5,12 @@
     </div>
     <div class="filter-list-wrapper">
       <div v-for="item in items" :key="item" class="filter-list">
-        <input type="checkbox" :value="item" class="filter-list__input">
+        <input
+          type="checkbox"
+          :value="item"
+          class="filter-list__input"
+          @click="changeCheckbox(item)"
+        >
         <label class="filter-list__label">{{ item }}</label>
       </div>
     </div>
@@ -24,6 +29,24 @@ export default {
     items: {
       type: Array,
       default: () => []
+    }
+  },
+
+  data () {
+    return {
+      checkboxList: []
+    }
+  },
+
+  methods: {
+    changeCheckbox (item) {
+      const index = this.checkboxList.indexOf(item)
+      if (index !== -1) {
+        this.checkboxList.splice(index, 1)
+      } else {
+        this.checkboxList.push(item)
+      }
+      this.$emit('changeCheckbox', this.checkboxList)
     }
   }
 }
